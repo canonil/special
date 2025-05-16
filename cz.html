@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffe6e6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #yes {
+      background-color: #ffb3c6;
+      color: white;
+    }
+
+    #no {
+      background-color: #999;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Wanna be my Poookie?</h1>
+  <div class="buttons">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+  <script>
+    let noButton = document.getElementById("no");
+    let yesButton = document.getElementById("yes");
+    let shrinkCount = 0;
+
+    noButton.addEventListener("click", () => {
+      shrinkCount++;
+      let scale = Math.max(0.2, 1 - 0.1 * shrinkCount);
+      noButton.style.transform = `scale(${scale})`;
+
+      if (scale === 0.2) {
+        noButton.disabled = true;
+        noButton.innerText = "Too small!";
+      }
+    });
+
+    yesButton.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1>Yaaay!</h1>
+        <p style="font-size: 24px; color: #ff4d6d;">🥹</b>!</p>
+        <img src="https://media.tenor.com/4fGcCytq5xQAAAAC/cute-love.gif" alt="Cute gif" style="width: 200px; margin-top: 20px;">
+      `;
+    });
+  </script>
+
+</body>
+</html>
